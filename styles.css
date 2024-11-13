@@ -1,28 +1,28 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-
-header {
-    background: #35424a;
-    color: #ffffff;
-    padding: 10px 0;
+    background-color: #f0f8ff;
+    color: #333;
     text-align: center;
 }
 
-main {
-    padding: 20px;
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 0;
 }
 
-#tracker {
-    background: #ffffff;
+main {
+    margin: 20px;
+}
+
+#train-info {
+    border: 1px solid #ccc;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 }
 
-#network-list {
+footer {
     margin-top: 20px;
+    font-size: 0.8em;
 }
