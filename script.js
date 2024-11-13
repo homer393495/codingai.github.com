@@ -1,4 +1,10 @@
 const trainList = document.getElementById('train-list');
+const searchInput = document.getElementById('search');
+const trainTypeFilter = document.getElementById('train-type-filter');
+const sortNameButton = document.getElementById('sort-name');
+const sortArrivalButton = document.getElementById('sort-arrival');
+
+let trains = [];
 
 async function fetchTrainData() {
     try {
@@ -7,8 +13,8 @@ async function fetchTrainData() {
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-        const data = await response.json();
-        displayTrains(data);
+        trains = await response.json();
+        displayTrains(trains);
     } catch (error) {
         console.error('Error fetching train data:', error);
         trainList.innerHTML = 'Failed to load train information. Please try again later.';
@@ -25,10 +31,14 @@ function displayTrains(trains) {
         const trainItem = document.createElement('div');
         trainItem.className = 'train-item';
         trainItem.innerHTML = `<strong>Train:</strong> ${train.name} <strong>Arrival:</strong> ${train.arrival}`;
+        trainItem.onclick = () => alert(`Details for ${train.name}: Arrival at ${train.arrival}`);
         trainList.appendChild(trainItem);
     });
 }
 
-// Fetch train data every minute
-setInterval(fetchTrainData, 60000);
-fetchTrainData();
+// Filtering and Searching
+function filterAndSearchTrains() {
+    const searchTerm = searchInput.value.toLowerCase();
+    const selectedType = trainTypeFilter.value;
+
+    const filteredTrains = trains.filter
