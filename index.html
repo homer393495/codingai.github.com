@@ -9,6 +9,14 @@
 <body>
     <header>
         <h1>Ithaca Train Tracker</h1>
+        <input type="text" id="search" placeholder="Search for a train..." />
+        <select id="train-type-filter">
+            <option value="">All Train Types</option>
+            <option value="Amtrak">Amtrak</option>
+            <option value="Local">Local</option>
+        </select>
+        <button id="sort-name">Sort by Name</button>
+        <button id="sort-arrival">Sort by Arrival</button>
     </header>
     <main>
         <section id="train-info">
