@@ -1,29 +1,22 @@
-const busListElement = document.getElementById('bus-list');
-const refreshBtn = document.getElementById('refresh-btn');
+document.getElementById('refresh-btn').addEventListener('click', fetchBusLocations);
 
-async function fetchBusLocations() {
-    try {
-        // Replace with your API endpoint
-        const response = await fetch('https://api.example.com/bus-locations');
-        const data = await response.json();
+function fetchBusLocations() {
+    // Simulated API call to fetch bus locations
+    const busLocations = [
+        { id: '1', name: 'Bus 1', latitude: 42.4411, longitude: -76.5019 },
+        { id: '2', name: 'Bus 2', latitude: 42.4422, longitude: -76.5020 },
+        { id: '3', name: 'Bus 3', latitude: 42.4433, longitude: -76.5031 }
+    ];
 
-        // Clear the current bus list
-        busListElement.innerHTML = '';
+    const busList = document.getElementById('bus-list');
+    busList.innerHTML = ''; // Clear previous list
 
-        // Populate the bus list
-        data.buses.forEach(bus => {
-            const listItem = document.createElement('li');
-            listItem.textContent = `Bus Number: ${bus.number}, Location: ${bus.location}, Status: ${bus.status}`;
-            busListElement.appendChild(listItem);
-        });
-    } catch (error) {
-        console.error('Error fetching bus locations:', error);
-        busListElement.innerHTML = '<li>Error fetching bus locations. Please try again later.</li>';
-    }
+    busLocations.forEach(bus => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${bus.name} is at Latitude: ${bus.latitude}, Longitude: ${bus.longitude}`;
+        busList.appendChild(listItem);
+    });
 }
 
-// Fetch bus locations on initial load
+// Initial fetch on page load
 fetchBusLocations();
-
-// Refresh bus locations on button click
-refreshBtn.addEventListener('click', fetchBusLocations);
