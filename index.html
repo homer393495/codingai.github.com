@@ -3,16 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real-Time News</title>
+    <title>Picture Generator with Chatbot</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Real-Time News</h1>
+        <h1>Picture Generator with Chatbot</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#chatbot">Chatbot</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
-    <main>
-        <div id="news-container"></div>
-    </main>
-    <script src="script.js"></script>
-</body>
-</html>
+    
+    <section id="home">
+        <h2>Generate a Random Picture</h2>
+        <button id="generate-button">Generate Picture</button>
+        <div id="image-container">
+            <img id="random-image" src="" alt="Random Picture" style="display:none; max-width: 100%; height: auto;">
+        </div>
+    </section>
+    
+    <section id="chatbot">
+        <h2>Chat with our Bot</h2>
+        <div id="chat-container">
+            <div id="chatbox">
+                <div id="chatlog"></div>
+                <input type="text" id="user
