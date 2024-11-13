@@ -2,92 +2,27 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background-color: #f4f4f4;
 }
 
 header {
-    background: #4CAF50;
+    background: #35424a;
     color: #ffffff;
     padding: 10px 0;
     text-align: center;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-section {
+main {
     padding: 20px;
-    margin: 10px;
+}
+
+#tracker {
     background: #ffffff;
+    padding: 20px;
     border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background: #4CAF50;
-    color: #ffffff;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-#image-container {
+#network-list {
     margin-top: 20px;
-}
-
-#chat-container {
-    margin-top: 20px;
-}
-
-#chatbox {
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    height: 300px;
-    overflow-y: auto;
-}
-
-#chatlog {
-    margin-bottom: 10px;
-    max-height: 250px;
-    overflow-y: auto;
-}
-
-#chatlog div {
-    margin: 5px 0;
-}
-
-#user-input {
-    width: 70%;
-    padding: 10px;
-}
-
-#send-button {
-    padding: 10px;
 }
