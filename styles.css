@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 20px;
@@ -25,7 +25,8 @@ h1 {
     border-radius: 5px;
     margin-bottom: 10px;
     padding: 10px;
-    overflow-y: scroll;
+    overflow-y: auto;
+    background-color: #fafafa;
 }
 
 .chatbox p {
@@ -50,4 +51,12 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+.code {
+    background-color: #e8e8e8;
+    border-left: 4px solid #007bff;
+    padding: 10px;
+    font-family: 'Courier New', monospace;
+    white-space: pre-wrap;
 }
