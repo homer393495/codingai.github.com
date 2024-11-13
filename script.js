@@ -9,15 +9,16 @@ async function fetchNews() {
 function displayNews(articles) {
     newsContainer.innerHTML = '';
     articles.forEach(article => {
-        const articleDiv = document.createElement('div');
-        articleDiv.classList.add('article');
-        articleDiv.innerHTML = `
+        const newsItem = document.createElement('div');
+        newsItem.classList.add('news-item');
+        newsItem.innerHTML = `
             <h2>${article.title}</h2>
-            <p>${article.description || 'No description available.'}</p>
+            <p>${article.description}</p>
             <a href="${article.url}" target="_blank">Read more</a>
         `;
-        newsContainer.appendChild(articleDiv);
+        newsContainer.appendChild(newsItem);
     });
 }
 
 fetchNews();
+setInterval(fetchNews, 60000); // Refresh news every minute
