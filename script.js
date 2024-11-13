@@ -1,32 +1,34 @@
-const url = 'https://api.openweathermap.org/data/2.5/weather';
-const apiKey = 'f00c38e0279b7bc85480c3fe775d518c';
+const trainList = document.getElementById('train-list');
 
-document.getElementById('city-input-btn').addEventListener('click', function() {
-    const cityName = document.getElementById('city-input').value;
-    weatherFn(cityName);
-});
-
-async function weatherFn(cName) {
-    const temp = `${url}?q=${cName}&appid=${apiKey}&units=metric`;
+async function fetchTrainData() {
     try {
-        const res = await fetch(temp);
-        const data = await res.json();
-        if (res.ok) {
-            weatherShowFn(data);
-        } else {
-            alert('City not found. Please try again.');
+        // Replace with a real API endpoint that provides train data for Ithaca
+        const response = await fetch('https://api.example.com/trains/ithaca'); 
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
         }
+        const data = await response.json();
+        displayTrains(data);
     } catch (error) {
-        console.error('Error fetching weather data:', error);
+        console.error('Error fetching train data:', error);
+        trainList.innerHTML = 'Failed to load train information. Please try again later.';
     }
 }
 
-function weatherShowFn(data) {
-    document.getElementById('city-name').textContent = data.name;
-    document.getElementById('date').textContent = moment().format('MMMM Do YYYY, h:mm:ss a');
-    document.getElementById('temperature').innerHTML = `${data.main.temp}°C`;
-    document.getElementById('description').textContent = data.weather[0].description;
-    document.getElementById('wind-speed').innerHTML = `Wind Speed: ${data.wind.speed} m/s`;
-    document.getElementById('weather-icon').src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
-    document.getElementById('weather-details').style.display = 'block';
+function displayTrains(trains) {
+    trainList.innerHTML = '';
+    if (trains.length === 0) {
+        trainList.innerHTML = 'No trains available at the moment.';
+        return;
+    }
+    trains.forEach(train => {
+        const trainItem = document.createElement('div');
+        trainItem.className = 'train-item';
+        trainItem.innerHTML = `<strong>Train:</strong> ${train.name} <strong>Arrival:</strong> ${train.arrival}`;
+        trainList.appendChild(trainItem);
+    });
 }
+
+// Fetch train data every minute
+setInterval(fetchTrainData, 60000);
+fetchTrainData();
