@@ -3,16 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ithaca School Bus Tracker</title>
     <link rel="stylesheet" href="styles.css">
-    <title>ChatGPT-5 Interface</title>
 </head>
 <body>
-    <div class="container">
-        <h1>ChatGPT-5</h1>
-        <div id="chatbox" class="chatbox"></div>
-        <input type="text" id="userInput" placeholder="Type your message here..." />
-        <button id="sendBtn">Send</button>
-    </div>
+    <header>
+        <h1>Ithaca School Bus Real-Time Tracker</h1>
+    </header>
+    <main>
+        <div id="bus-info">
+            <h2>Bus Locations</h2>
+            <ul id="bus-list"></ul>
+        </div>
+        <button id="refresh-btn">Refresh Bus Locations</button>
+    </main>
+    <footer>
+        <p>&copy; 2023 Ithaca School District</p>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
