@@ -1,34 +1,29 @@
-document.getElementById('sendBtn').addEventListener('click', function() {
-    const userInput = document.getElementById('userInput');
-    const chatbox = document.getElementById('chatbox');
+const busListElement = document.getElementById('bus-list');
+const refreshBtn = document.getElementById('refresh-btn');
 
-    if (userInput.value.trim() !== '') {
-        const userMessage = document.createElement('p');
-        userMessage.textContent = 'You: ' + userInput.value;
-        chatbox.appendChild(userMessage);
+async function fetchBusLocations() {
+    try {
+        // Replace with your API endpoint
+        const response = await fetch('https://api.example.com/bus-locations');
+        const data = await response.json();
 
-        // Generate a response from the simulated ChatGPT
-        const botMessage = document.createElement('p');
-        botMessage.className = 'code';
-        botMessage.textContent = 'ChatGPT: ' + generateCodeResponse(userInput.value);
-        chatbox.appendChild(botMessage);
+        // Clear the current bus list
+        busListElement.innerHTML = '';
 
-        // Clear the input
-        userInput.value = '';
-        chatbox.scrollTop = chatbox.scrollHeight; // Auto-scroll to the bottom
-    }
-});
-
-// Function to simulate ChatGPT response with code snippets
-function generateCodeResponse(input) {
-    // Simple keyword-based response generation
-    if (input.toLowerCase().includes('html')) {
-        return '<!DOCTYPE html>\n<html>\n<head>\n    <title>My Web Page</title>\n</head>\n<body>\n    <h1>Hello, World!</h1>\n</body>\n</html>';
-    } else if (input.toLowerCase().includes('css')) {
-        return 'body {\n    background-color: #f4f4f4;\n}';
-    } else if (input.toLowerCase().includes('javascript')) {
-        return 'console.log("Hello, World!");';
-    } else {
-        return 'I\'m not sure how to respond to that. Try asking about HTML, CSS, or JavaScript!';
+        // Populate the bus list
+        data.buses.forEach(bus => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `Bus Number: ${bus.number}, Location: ${bus.location}, Status: ${bus.status}`;
+            busListElement.appendChild(listItem);
+        });
+    } catch (error) {
+        console.error('Error fetching bus locations:', error);
+        busListElement.innerHTML = '<li>Error fetching bus locations. Please try again later.</li>';
     }
 }
+
+// Fetch bus locations on initial load
+fetchBusLocations();
+
+// Refresh bus locations on button click
+refreshBtn.addEventListener('click', fetchBusLocations);
