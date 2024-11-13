@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ithaca School Bus Tracker</title>
+    <title>Ithaca NY Weather Tracker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Ithaca School Bus Real-Time Tracker</h1>
-    </header>
-    <main>
-        <section id="bus-info">
-            <h2>Bus Locations</h2>
-            <ul id="bus-list"></ul>
+    <div class="container">
+        <header>
+            <h1>Ithaca, NY Weather Tracker</h1>
+        </header>
+        <section id="weather-forecast">
+            <h2>Current Weather</h2>
+            <div id="weather-data"></div>
         </section>
-        <button id="refresh-btn">Refresh Bus Locations</button>
-    </main>
-    <footer>
-        <p>&copy; 2024 Ithaca School District</p>
-    </footer>
+        <section id="radar-map">
+            <h2>Weather Radar</h2>
+            <div id="radar"></div>
+        </section>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
