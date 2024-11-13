@@ -1,23 +1,52 @@
-const weatherApiKey = 'd8f791bdb444a9f40b665e3cb01379f5';
-const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Ithaca,NY&appid=${weatherApiKey}&units=imperial`;
-
-async function fetchWeather() {
-    try {
-        const response = await fetch(weatherApiUrl);
-        const data = await response.json();
-        displayWeather(data);
-    } catch (error) {
-        console.error('Error fetching weather data:', error);
-    }
+body {
+    background: linear-gradient(to right, #4A90E2, #50E3C2);
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
 }
 
-function displayWeather(data) {
-    const weatherDataDiv = document.getElementById('weather-data');
-    weatherDataDiv.innerHTML = `
-        <p>Temperature: ${data.main.temp} °F</p>
-        <p>Condition: ${data.weather[0].description}</p>
-        <p>Humidity: ${data.main.humidity}%</p>
-    `;
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
 }
 
-fetchWeather();
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 3em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+p {
+    font-size: 1.2em;
+}
+
+#news-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.article {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    width: calc(30% - 20px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+
+.article:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
