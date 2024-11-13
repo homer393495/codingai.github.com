@@ -1,62 +1,62 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
-.container {
-    max-width: 600px;
-    margin: auto;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-}
-
-h1 {
+header {
+    background: #007BFF;
+    color: white;
+    padding: 10px 0;
     text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+h2 {
     color: #333;
 }
 
-.chatbox {
-    height: 400px;
-    border: 1px solid #ccc;
+#bus-info {
+    background: white;
+    padding: 15px;
     border-radius: 5px;
-    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#bus-list {
+    list-style: none;
+    padding: 0;
+}
+
+#bus-list li {
     padding: 10px;
-    overflow-y: auto;
-    background-color: #fafafa;
+    border-bottom: 1px solid #ccc;
 }
 
-.chatbox p {
-    margin: 5px 0;
-}
-
-input[type="text"] {
-    width: calc(100% - 90px);
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
+#refresh-btn {
+    margin-top: 20px;
     padding: 10px 15px;
-    border: none;
-    background-color: #007bff;
+    background: #28a745;
     color: white;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #0056b3;
+#refresh-btn:hover {
+    background: #218838;
 }
 
-.code {
-    background-color: #e8e8e8;
-    border-left: 4px solid #007bff;
-    padding: 10px;
-    font-family: 'Courier New', monospace;
-    white-space: pre-wrap;
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #007BFF;
+    color: white;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 }
