@@ -1,24 +1,64 @@
-const newsContainer = document.getElementById('news-container');
+// Array of image URLs
+const images = [
+    'https://via.placeholder.com/300/FF5733/FFFFFF?text=Image+1',
+    'https://via.placeholder.com/300/33FF57/FFFFFF?text=Image+2',
+    'https://via.placeholder.com/300/3357FF/FFFFFF?text=Image+3',
+    'https://via.placeholder.com/300/FF33A1/FFFFFF?text=Image+4',
+    'https://via.placeholder.com/300/A133FF/FFFFFF?text=Image+5',
+    'https://via.placeholder.com/300/FFDA33/FFFFFF?text=Image+6',
+    'https://via.placeholder.com/300/33FFD1/FFFFFF?text=Image+7',
+    'https://via.placeholder.com/300/FF5733/FFFFFF?text=Image+8',
+    'https://via.placeholder.com/300/33FF57/FFFFFF?text=Image+9',
+    'https://via.placeholder.com/300/FF33FF/FFFFFF?text=Image+10'
+];
 
-async function fetchNews() {
-    const response = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=YOUR_API_KEY');
-    const data = await response.json();
-    displayNews(data.articles);
+// Function to generate a random picture
+function generateRandomImage() {
+    const randomIndex = Math.floor(Math.random() * images.length);
+    const randomImage = images[randomIndex];
+    const imageElement = document.getElementById('random-image');
+
+    imageElement.src = randomImage;
+    imageElement.style.display = 'block'; // Show the image
 }
 
-function displayNews(articles) {
-    newsContainer.innerHTML = '';
-    articles.forEach(article => {
-        const newsItem = document.createElement('div');
-        newsItem.classList.add('news-item');
-        newsItem.innerHTML = `
-            <h2>${article.title}</h2>
-            <p>${article.description}</p>
-            <a href="${article.url}" target="_blank">Read more</a>
-        `;
-        newsContainer.appendChild(newsItem);
-    });
+// Event listener for the generate button
+document.getElementById('generate-button').addEventListener('click', generateRandomImage);
+
+// Chatbot functionality
+const chatlog = document.getElementById('chatlog');
+const userInput = document.getElementById('user-input');
+const sendButton = document.getElementById('send-button');
+
+// Function to handle sending messages
+function sendMessage() {
+    const userMessage = userInput.value;
+    if (userMessage.trim() === '') return;
+
+    // Display user message
+    const userMessageDiv = document.createElement('div');
+    userMessageDiv.textContent = `You: ${userMessage}`;
+    chatlog.appendChild(userMessageDiv);
+
+    // Clear input
+    userInput.value = '';
+
+    // Simulate bot response
+    const botResponse = `Bot: You said "${userMessage}"`;
+    const botMessageDiv = document.createElement('div');
+    botMessageDiv.textContent = botResponse;
+    chatlog.appendChild(botMessageDiv);
+
+    // Scroll to the bottom of the chatlog
+    chatlog.scrollTop = chatlog.scrollHeight;
 }
 
-fetchNews();
-setInterval(fetchNews, 60000); // Refresh news every minute
+// Event listener for the send button
+sendButton.addEventListener('click', sendMessage);
+
+// Event listener for pressing Enter key
+userInput.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
+});
