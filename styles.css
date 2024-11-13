@@ -16,29 +16,24 @@ main {
     padding: 20px;
 }
 
-h2 {
-    color: #333;
-}
-
 #bus-info {
-    background: white;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 #bus-list {
-    list-style: none;
+    list-style-type: none;
     padding: 0;
 }
 
 #bus-list li {
+    background: #fff;
+    margin: 5px 0;
     padding: 10px;
-    border-bottom: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-#refresh-btn {
-    margin-top: 20px;
+button {
     padding: 10px 15px;
     background: #28a745;
     color: white;
@@ -47,16 +42,6 @@ h2 {
     cursor: pointer;
 }
 
-#refresh-btn:hover {
+button:hover {
     background: #218838;
-}
-
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background: #007BFF;
-    color: white;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
 }
