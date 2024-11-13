@@ -1,47 +1,26 @@
 body {
     font-family: Arial, sans-serif;
+    background: url('your-background-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
 }
 
-header {
-    background: #007BFF;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
-}
-
-main {
+.container {
+    width: 80%;
+    margin: auto;
     padding: 20px;
 }
 
-#bus-info {
+header {
+    text-align: center;
     margin-bottom: 20px;
 }
 
-#bus-list {
-    list-style-type: none;
-    padding: 0;
-}
-
-#bus-list li {
-    background: #fff;
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-button {
-    padding: 10px 15px;
-    background: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #218838;
+#weather-forecast, #radar-map {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
