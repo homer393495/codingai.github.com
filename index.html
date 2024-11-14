@@ -4,25 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Bloxburg News</title>
+    <title>Real-Time AI Chatbox</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <header>
-        <h1>Welcome to Bloxburg Real-Time News</h1>
-    </header>
-    <main>
-        <div id="news-container">
-            <h2>Latest Updates</h2>
-            <ul id="news-list">
-                <li>Loading news...</li>
-            </ul>
+    <div class="chat-container">
+        <header>
+            <h2>AI Chat Room</h2>
+        </header>
+        <ul class="chatbox" id="chatbox">
+            <li class="chat-incoming chat">
+                <p>Welcome to the AI chat! How can I assist you today?</p>
+            </li>
+        </ul>
+        <div class="chat-input">
+            <textarea id="messageInput" placeholder="Type your message..."></textarea>
+            <button id="sendButton">Send</button>
         </div>
-    </main>
-    <footer>
-        <p>&copy; 2024 Bloxburg News</p>
-    </footer>
+    </div>
     <script src="script.js"></script>
 </body>
 
