@@ -1,26 +1,32 @@
-const newsList = document.getElementById('news-list');
+const messageInput = document.getElementById('messageInput');
+const sendButton = document.getElementById('sendButton');
+const chatbox = document.getElementById('chatbox');
 
-async function fetchNews() {
-    // Simulating fetching news from an API
-    const newsArticles = [
-        "Spring cleaning and new build mode items are here!",
-        "New materials and pre-built house catalog added!",
-        "Equal pay across all jobs implemented!",
-        "New towing and hospital fees introduced!",
-        "Exciting updates for Valentine's Day coming soon!"
-    ];
+sendButton.addEventListener('click', () => {
+    const userMessage = messageInput.value.trim();
+    if (userMessage) {
+        appendMessage(userMessage, 'chat-outgoing');
+        messageInput.value = '';
+        getAIResponse(userMessage);
+    }
+});
 
-    // Clear the current news list
-    newsList.innerHTML = '';
-
-    // Display each news article
-    newsArticles.forEach(article => {
-        const li = document.createElement('li');
-        li.textContent = article;
-        newsList.appendChild(li);
-    });
+function appendMessage(message, type) {
+    const li = document.createElement('li');
+    li.className = type + ' chat';
+    li.innerHTML = `<p>${message}</p>`;
+    chatbox.appendChild(li);
+    chatbox.scrollTop = chatbox.scrollHeight; // Scroll to the bottom
 }
 
-// Fetch news immediately and then every 10 seconds
-fetchNews();
-setInterval(fetchNews, 10000);
+function getAIResponse(userMessage) {
+    // Simulated AI response (you can replace this with an actual API call)
+    const responses = [
+        "That's interesting! Can you tell me more?",
+        "I'm not sure about that. Could you clarify?",
+        "That's a great question! Here's what I think...",
+        "Let me look into that for you.",
+        "Can you provide an example?"
+    ];
+
+    const randomResponse = responses[Math.floor(Math.random()
