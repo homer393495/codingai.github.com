@@ -14,5 +14,13 @@ document.getElementById('contact-form').addEventListener('submit', function(even
 // Function to fetch and display the current ship's time
 function updateShipTime() {
     const now = new Date();
-    const options = { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-    const timeString = now.to
+    const options = { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+    const timeString = now.toLocaleTimeString('en-US', options);
+    document.getElementById('ship-time').textContent = `Current Ship's Time: ${timeString}`;
+}
+
+// Update the ship's time every second
+setInterval(updateShipTime, 1000);
+
+// Initial call to display the time immediately on page load
+updateShipTime();
