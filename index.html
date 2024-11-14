@@ -1,65 +1,17 @@
 <!DOCTYPE html>
-<html lang=" en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carnival Cruise Line Group - Roblox</title>
+    <title>Real Life Clock</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Carnival Cruise Line Group</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#ships">Cruise Ships</a></li>
-                <li><a href="#time">Real Ship's Time</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section id="about">
-            <h2>About Us</h2>
-            <p>Welcome to the Carnival Cruise Line Group! Join us for an unforgettable adventure on the seas.</p>
-        </section>
-
-        <section id="ships">
-            <h2>Cruise Ships</h2>
-            <ul>
-                <li>Carnival Vista</li>
-                <li>Carnival Horizon</li>
-                <li>Carnival Breeze</li>
-                <li>Carnival Sunrise</li>
-            </ul>
-        </section>
-
-        <section id="time">
-            <h2>Real Ship's Time</h2>
-            <p id="ship-time">Loading current ship time...</p>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <form id="contact-form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-                
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Carnival Cruise Line Group - Roblox</p>
-    </footer>
+    <div class="clock-container">
+        <h1>Real Life Clock</h1>
+        <div id="clock" class="clock"></div>
+        <p id="timezone" class="timezone"></p>
+    </div>
 
     <script src="script.js"></script>
 </body>
