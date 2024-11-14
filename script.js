@@ -1,20 +1,26 @@
-function updateClock() {
-    const now = new Date();
+const newsList = document.getElementById('news-list');
 
-    // Get the current time
-    const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
-    const timeString = now.toLocaleTimeString('en-US', options);
+async function fetchNews() {
+    // Simulating fetching news from an API
+    const newsArticles = [
+        "Spring cleaning and new build mode items are here!",
+        "New materials and pre-built house catalog added!",
+        "Equal pay across all jobs implemented!",
+        "New towing and hospital fees introduced!",
+        "Exciting updates for Valentine's Day coming soon!"
+    ];
 
-    // Get the current timezone
-    const timezoneString = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    // Clear the current news list
+    newsList.innerHTML = '';
 
-    // Update the clock and timezone display
-    document.getElementById('clock').textContent = timeString;
-    document.getElementById('timezone').textContent = `Timezone: ${timezoneString}`;
-
-    // Schedule the next update
-    setTimeout(updateClock, 1000 - (new Date() % 1000));
+    // Display each news article
+    newsArticles.forEach(article => {
+        const li = document.createElement('li');
+        li.textContent = article;
+        newsList.appendChild(li);
+    });
 }
 
-// Update the clock immediately and then every second
-updateClock();
+// Fetch news immediately and then every 10 seconds
+fetchNews();
+setInterval(fetchNews, 10000);
