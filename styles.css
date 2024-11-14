@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background-color: #f0f8ff;
 }
 
 header {
@@ -12,8 +12,33 @@ header {
     text-align: center;
 }
 
-#map {
-    height: 600px;
+main {
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    margin: 10px 0;
+}
+
+section {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #0077cc;
+    border-radius: 8px;
+    background-color: white;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #0077cc;
+    color: white;
+    position: relative;
+    bottom: 0;
     width: 100%;
-    margin-top: 20px;
 }
