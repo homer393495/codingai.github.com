@@ -1,3 +1,7 @@
+// Simulate a delay for the AI response
+setTimeout(() => {
+    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+    appendMessage(randomResponse, '
 const messageInput = document.getElementById('messageInput');
 const sendButton = document.getElementById('sendButton');
 const chatbox = document.getElementById('chatbox');
@@ -11,6 +15,7 @@ sendButton.addEventListener('click', () => {
     }
 });
 
+// Function to append messages to the chatbox
 function appendMessage(message, type) {
     const li = document.createElement('li');
     li.className = type + ' chat';
@@ -19,6 +24,7 @@ function appendMessage(message, type) {
     chatbox.scrollTop = chatbox.scrollHeight; // Scroll to the bottom
 }
 
+// Function to simulate AI response
 function getAIResponse(userMessage) {
     // Simulated AI response (you can replace this with an actual API call)
     const responses = [
@@ -32,4 +38,6 @@ function getAIResponse(userMessage) {
     // Simulate a delay for the AI response
     setTimeout(() => {
         const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-        appendMessage(randomResponse, '
+        appendMessage(randomResponse, 'chat-incoming'); // Append AI response
+    }, 1000); // Delay of 1 second for the response
+}
