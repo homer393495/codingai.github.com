@@ -1,44 +1,18 @@
-const trainList = document.getElementById('train-list');
-const searchInput = document.getElementById('search');
-const trainTypeFilter = document.getElementById('train-type-filter');
-const sortNameButton = document.getElementById('sort-name');
-const sortArrivalButton = document.getElementById('sort-arrival');
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
 
-let trains = [];
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
 
-async function fetchTrainData() {
-    try {
-        // Replace with a real API endpoint that provides train data for Ithaca
-        const response = await fetch('https://api.example.com/trains/ithaca'); 
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        trains = await response.json();
-        displayTrains(trains);
-    } catch (error) {
-        console.error('Error fetching train data:', error);
-        trainList.innerHTML = 'Failed to load train information. Please try again later.';
-    }
-}
+    alert(`Thank you, ${name}! Your message has been sent.`);
+    
+    // Optionally, reset the form
+    document.getElementById('contact-form').reset();
+});
 
-function displayTrains(trains) {
-    trainList.innerHTML = '';
-    if (trains.length === 0) {
-        trainList.innerHTML = 'No trains available at the moment.';
-        return;
-    }
-    trains.forEach(train => {
-        const trainItem = document.createElement('div');
-        trainItem.className = 'train-item';
-        trainItem.innerHTML = `<strong>Train:</strong> ${train.name} <strong>Arrival:</strong> ${train.arrival}`;
-        trainItem.onclick = () => alert(`Details for ${train.name}: Arrival at ${train.arrival}`);
-        trainList.appendChild(trainItem);
-    });
-}
-
-// Filtering and Searching
-function filterAndSearchTrains() {
-    const searchTerm = searchInput.value.toLowerCase();
-    const selectedType = trainTypeFilter.value;
-
-    const filteredTrains = trains.filter
+// Function to fetch and display the current ship's time
+function updateShipTime() {
+    const now = new Date();
+    const options = { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    const timeString = now.to
