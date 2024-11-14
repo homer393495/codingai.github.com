@@ -1,16 +1,22 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const updates = [
-        "Version 1.0: Launch of the game!",
-        "Version 1.1: Added new islands to explore.",
-        "Version 1.2: Introduced new mini-games and activities.",
-        "Version 1.3: Bug fixes and performance improvements."
-    ];
+const apiUrl = 'https://example.com/api/updates'; // Replace with your API URL
+const updateList = document.getElementById('update-list');
+const updateBtn = document.getElementById('update-btn');
 
-    const updateList = document.getElementById('update-list');
+updateBtn.addEventListener('click', checkForUpdates);
 
-    updates.forEach(update => {
-        const listItem = document.createElement('div');
-        listItem.textContent = update;
-        updateList.appendChild(listItem);
-    });
-});
+function checkForUpdates() {
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(updates => {
+            updateList.innerHTML = '';
+            updates.forEach(update => {
+                const listItem = document.createElement('div');
+                listItem.textContent = update;
+                updateList.appendChild(listItem);
+            });
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+// Initial update check
+checkForUpdates();
