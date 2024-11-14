@@ -29,4 +29,7 @@ function getAIResponse(userMessage) {
         "Can you provide an example?"
     ];
 
-    const randomResponse = responses[Math.floor(Math.random()
+    // Simulate a delay for the AI response
+    setTimeout(() => {
+        const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        appendMessage(randomResponse, '
