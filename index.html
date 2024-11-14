@@ -4,44 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Carnival Cruise Line Group</title>
+    <title>Carnival Cruise Line Tracker</title>
 </head>
 <body>
     <header>
-        <h1>Carnival Cruise Line Group on Roblox</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#tracker">Real-Time Tracker</a></li>
-                <li><a href="#resources">Resources</a></li>
-            </ul>
-        </nav>
+        <h1>Carnival Cruise Line Real-Time Tracker</h1>
+        <input type="text" id="shipSearch" placeholder="Enter ship name...">
+        <button onclick="searchShip()">Search</button>
     </header>
-
-    <section id="about">
-        <h2>About Us</h2>
-        <p>Welcome to the Carnival Cruise Line group! Join us for fun and adventures on Roblox.</p>
-    </section>
-
-    <section id="tracker">
-        <h2>Real-Time Tracker</h2>
-        <div id="tracker-container">
-            <p>Current Location: <span id="current-location">Loading...</span></p>
-        </div>
-    </section>
-
-    <section id="resources">
-        <h2>Resources</h2>
-        <ul>
-            <li><a href="https://boards.cruisecritic.com/topic/700049-real-time-ship-tracker/">Real-Time Ship Tracker</a></li>
-            <li><a href="https://devforum.roblox.com/t/web-how-would-i-make-a-custom-game-carousel-container-on-the-discovery-page/1605861">Roblox Dev Forum</a></li>
-        </ul>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Carnival Cruise Line Group</p>
-    </footer>
-
+    <main>
+        <div id="map"></div>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
