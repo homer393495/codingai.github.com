@@ -1,4 +1,4 @@
-const apiUrl = 'https://homer393495.github.io/codingai.github.com/'; // Replace with your API URL
+const apiUrl = 'https://example.com/api/updates'; // Replace with your API URL
 const updateList = document.getElementById('update-list');
 const updateBtn = document.getElementById('update-btn');
 
