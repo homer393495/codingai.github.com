@@ -2,37 +2,18 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f8ff;
+    background-color: #f0f0f0;
 }
 
 header {
-    background-color: #ff6347;
+    background-color: #0077cc;
     color: white;
-    padding: 10px 0;
-    text-align: center;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-section {
     padding: 20px;
-    margin: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: white;
+    text-align: center;
 }
 
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #ff6347;
-    color: white;
+#map {
+    height: 600px;
+    width: 100%;
+    margin-top: 20px;
 }
